@@ -4,9 +4,17 @@
 
 $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, (string) 11);
 	foreach ($things as $thing) {
-		if (is_scalar($thing)) {
-        		echo $thing . PHP_EOL;
-    		} 
+		if (is_array($thing)) {
+			foreach ($thing as $value) {
+    			echo $value . ", ";
+    		}
+    			echo "" . PHP_EOL; //pushes data following to next line
+    		} else {
+				echo $thing . PHP_EOL;
+		}
+	}	 
+
+
 
     		//   elseif (is_null($thing)) {
     		// 	echo "null" . PHP_EOL;
@@ -19,4 +27,3 @@ $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, 
     		// } elseif (is_integer($thing)) {
     		// 	echo "integer" . PHP_EOL;
     		// }
-	}
