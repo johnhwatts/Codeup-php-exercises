@@ -61,19 +61,59 @@ $states = [
 // 	- Outputs all the states without the letter "a" in their name
 // 	- Outputs the states and abbreviations of all the states starting with vowels.
 
+// foreach ($states as $stateAbbr => $stateValue) {
+// 	if (strpos($stateValue, 'x')) {
+// 		echo "$stateAbbr: $stateValue" . PHP_EOL;	
+// 	} elseif (!strpos($stateValue, 'a')) {
+// 		echo "$stateAbbr: $stateValue" . PHP_EOL;
+// 	} elseif ($stateValue[0] == 'A' || 
+// 			  $stateValue[0] == 'E' ||
+// 			  $stateValue[0] == 'I' ||
+// 			  $stateValue[0] == 'O' ||
+// 			  $stateValue[0] == 'U') {
+// 		echo "$stateAbbr: $stateValue" . PHP_EOL;
+// 	}
+// }
+
+// Exercises Part 2
+// Use a foreach to make a new array containing states that start with and end with vowels
+	// call the array $statesStartingAndEndingWithVowels
+	// echo "These are states starting and ending with vowels"
+	// then echo each state name in this new array
+
+$statesStartingAndEndingWithVowels = [];
+
 foreach ($states as $stateAbbr => $stateValue) {
-	if (strpos($stateValue, 'x')) {
-		echo "$stateAbbr: $stateValue" . PHP_EOL;	
-	} elseif (!strpos($stateValue, 'a')) {
-		echo "$stateAbbr: $stateValue" . PHP_EOL;
-	} elseif ($stateValue[0] == 'A' || 
-			  $stateValue[0] == 'E' ||
-			  $stateValue[0] == 'I' ||
-			  $stateValue[0] == 'O' ||
-			  $stateValue[0] == 'U') {
-		echo "$stateAbbr: $stateValue" . PHP_EOL;
+	$length = strlen($stateValue);
+
+	if (($stateValue[0] == 'A' || 
+		$stateValue[0] == 'E' ||
+		$stateValue[0] == 'I' ||
+		$stateValue[0] == 'O' ||
+		$stateValue[0] == 'U') 
+
+		&&
+
+		($stateValue[$length-1] == 'a' || 
+		$stateValue[$length-1] == 'e' ||
+		$stateValue[$length-1] == 'i' ||
+		$stateValue[$length-1] == 'o' ||
+		$stateValue[$length-1] == 'u')) {
+
+		array_push($statesStartingAndEndingWithVowels, $stateValue);
 	}
 }
 
+foreach ($statesStartingAndEndingWithVowels as $statesStartEndVowel) {
+	echo $statesStartEndVowel . PHP_EOL;
+}
 
+// use a foreach to construct a new array containing states with names that are more than one word.
+	// call the array $statesWithMoreThanOneWordNames
+	// echo "These are the states with more than one word in their name"
+	// then echo each state name below
+
+// use a foreach to construct a new array of all the states with "North" "East" "South" or "West"
+	// call the array $arrayOfCardinalStates
+	// echo "These are states with north, south, east, or west in their name"
 
