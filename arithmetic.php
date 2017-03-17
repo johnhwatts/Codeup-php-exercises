@@ -3,32 +3,47 @@
 $a = "I'm outside the scope!";
 $b = "I'm outside the scope too!";
 
-function add($a, $b)
-{
-    return $a + $b;
-    echo $b . PHP_EOL; //This will never run because the variable is outside the scope.
+
+function add($a, $b){
+    if (is_numeric($a) && is_numeric($b)) {
+        return $a + $b;
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function subtract($a, $b)
-{
-    return $a - $b;
+function subtract($a, $b){
+    if (is_numeric($a) && is_numeric($b)) {
+        return $a - $b;
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function multiply($a, $b)
-{
-    return $a * $b;
+function multiply($a, $b){
+    if (is_numeric($a) && is_numeric($b)) {
+        return $a * $b;
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function divide($a, $b)
-{
-    return $a / $b;
+function divide($a, $b){
+    if (is_numeric($a) && is_numeric($b)) {
+        return $a - $b;
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function modulus($a, $b) 
-{
-	return $a % $b;
-	echo $a . PHP_EOL; //This will never run because the variable is outside the scope.
+function modulus($a, $b){
+    if (is_numeric($a) && is_numeric($b)) {
+        return $a % $b;
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
+	
 
 // Add code to test your functions here
 echo add(10, 2) . PHP_EOL;
