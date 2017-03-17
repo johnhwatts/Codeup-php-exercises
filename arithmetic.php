@@ -15,27 +15,28 @@ function add($a, $b){
     $throwErrorMessage = validate($a, $b);
     if ($throwErrorMessage) {
         return $throwErrorMessage;
+    } else {
+    	return $a + $b;
     }
-    return $a + $b;
-       
 }
 
 function subtract($a, $b){
     $throwErrorMessage = validate($a, $b);
     if ($throwErrorMessage) {
         return $throwErrorMessage;
-    }
+    } else {
         return $a - $b;
     }
+}
 
 
 function multiply($a, $b){
     $throwErrorMessage = validate($a, $b);
     if ($throwErrorMessage) {
         return $throwErrorMessage;
-    }
+    } else {
         return $a * $b;
-   
+    }
 }
 
 function divide($a, $b){
@@ -44,8 +45,9 @@ function divide($a, $b){
         return $throwErrorMessage;
     } elseif ($b == 0) {
     	return "ERROR: Cannot divide by 0" . PHP_EOL;
-    } 
+    } else {
        return $a / $b;
+    }
 }
 
 
@@ -53,9 +55,11 @@ function modulus($a, $b){
     $throwErrorMessage = validate($a, $b);
     if ($throwErrorMessage) {
         return $throwErrorMessage;
-    }
+    } elseif ($b == 0) {
+    	return "ERROR: Cannot divide by 0" . PHP_EOL;
+    } else {
         return $a % $b;
-    
+    }
 }
 	
 
