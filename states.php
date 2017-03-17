@@ -61,19 +61,32 @@ $states = [
 // 	- Outputs all the states without the letter "a" in their name
 // 	- Outputs the states and abbreviations of all the states starting with vowels.
 
-// foreach ($states as $stateAbbr => $stateValue) {
-// 	if (strpos($stateValue, 'x')) {
-// 		echo "$stateAbbr: $stateValue" . PHP_EOL;	
-// 	} elseif (!strpos($stateValue, 'a')) {
-// 		echo "$stateAbbr: $stateValue" . PHP_EOL;
-// 	} elseif ($stateValue[0] == 'A' || 
-// 			  $stateValue[0] == 'E' ||
-// 			  $stateValue[0] == 'I' ||
-// 			  $stateValue[0] == 'O' ||
-// 			  $stateValue[0] == 'U') {
-// 		echo "$stateAbbr: $stateValue" . PHP_EOL;
-// 	}
-// }
+
+// Make one foreach that outputs only the states with an "x" character in the state name
+echo "States with 'x' character in the name:" . PHP_EOL;
+foreach($states as $state) {
+	if((strpos($state, "x") !== false) || (strpos($state, "X") !== false)) {
+		echo "\t" . $state . PHP_EOL;
+	}
+}
+echo PHP_EOL;
+echo "States without the letter 'a' in their name:" . PHP_EOL;
+foreach($states as $state) {
+	if(strpos($state, "a") === false || (strpos($state, "A")) === false) {
+		echo "\t" . $state . PHP_EOL;
+	}
+}
+echo PHP_EOL;
+$vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+echo "States and their abbreviations for states starting with vowels:" . PHP_EOL;
+foreach($states as $abbreviation => $stateName) {
+	// $stateName[0] gives the first character of the string
+	// substr($stateName, 0, 1) also gives the first character of the string.
+	// if $stateName[0] == "a" || $stateName == "e" || $statName == "i" .... 
+	if(in_array($stateName[0], $vowels)) {
+		echo "\t" . $abbreviation . " : " . $stateName . PHP_EOL;
+	}
+}
 
 // Exercises Part 2
 // Use a foreach to make a new array containing states that start with and end with vowels
@@ -83,35 +96,25 @@ $states = [
 
 $statesStartingAndEndingWithVowels = [];
 
-foreach ($states as $stateAbbr => $stateValue) {
-	$length = strlen($stateValue);
+foreach ($states as $abbreviation => $state) {
+	if (in_array($state[0], $vowels, $strict = true)
+		&& in_array(substr($state, 1), $vowels, $strict = true)) {
 
-	if (($stateValue[0] == 'A' || 
-		$stateValue[0] == 'E' ||
-		$stateValue[0] == 'I' ||
-		$stateValue[0] == 'O' ||
-		$stateValue[0] == 'U') 
-
-		&&
-
-		($stateValue[$length-1] == 'a' || 
-		$stateValue[$length-1] == 'e' ||
-		$stateValue[$length-1] == 'i' ||
-		$stateValue[$length-1] == 'o' ||
-		$stateValue[$length-1] == 'u')) {
-
-		array_push($statesStartingAndEndingWithVowels, $stateValue);
+		$statesStartingAndEndingWithVowels[$abbreviation] = $state;
 	}
 }
-
-foreach ($statesStartingAndEndingWithVowels as $statesStartEndVowel) {
-	echo $statesStartEndVowel . PHP_EOL;
+echo "These are the states starting and ending with vowels: " . PHP_EOL;
+foreach ($statesStartingAndEndingWithVowels as $statesStartingAndEndingWithVowel) {
+	echo $statesStartingAndEndingWithVowel . PHP_ EOL;
 }
-
 // use a foreach to construct a new array containing states with names that are more than one word.
 	// call the array $statesWithMoreThanOneWordNames
 	// echo "These are the states with more than one word in their name"
 	// then echo each state name below
+
+// foreach ($statesStartingAndEndingWithVowels as $statesStartEndVowel) {
+// 	echo $statesStartEndVowel . PHP_EOL;
+// }
 
 // use a foreach to construct a new array of all the states with "North" "East" "South" or "West"
 	// call the array $arrayOfCardinalStates
