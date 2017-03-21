@@ -1,22 +1,24 @@
 <?php
 
- // Converts array into list n1, n2, ..., and n3
- function humanizedList($array) {
-   // Your solution goes here!
- }
-
- // List of famous peeps
+// List of famous peeps
  $physicistsString = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
 
- // TODO: Convert the string into an array
+  // TODO: Convert the string into an array
 $physicistsArray = explode(', ', $physicistsString);
 
-var_dump($physicistsArray);
+ // Converts array into list n1, n2, ..., and n3
+  function humanizedList(array $list, $conjunction = 'and') {
+  $last = array_pop($list);
+  if ($list) {
+    return implode(', ', $list) . ' ' . $conjunction . ' ' . $last;
+  }
+  return $last;
+}
 
- // // Humanize that list
- // $famousFakePhysicists = humanizedList($physicistsArray);
+ // Humanize that list
+ $famousFakePhysicists = humanizedList($physicistsArray);
 
- // // Output sentence
- // echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}.";
+ // Output sentence
+ echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}." . PHP_EOL;
 
  ?>
