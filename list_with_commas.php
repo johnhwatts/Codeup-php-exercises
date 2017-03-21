@@ -15,10 +15,14 @@ $physicistsArray = explode(', ', $physicistsString);
   return $last;
 }
 
- // Humanize that list
- $famousFakePhysicists = humanizedList($physicistsArray);
+// Update your code to list the physicists by first name, in alphabetical order.
+sort($physicistsArray);
+
+// Humanize that list
+$famousFakePhysicists = humanizedList($physicistsArray);
+
 
  // Output sentence
- echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}." . PHP_EOL;
+echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}." . PHP_EOL;
 
  ?>
