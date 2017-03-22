@@ -4,20 +4,12 @@
 
 //Main menu
 
-	fwrite(STDOUT, "--- Main Menu ---" . PHP_EOL);
-	fwrite(STDOUT, "1. View Contacts." . PHP_EOL);
-	fwrite(STDOUT, "2. Add a new contact." . PHP_EOL);
-	fwrite(STDOUT, "3. Search a contact by name." . PHP_EOL);
-	fwrite(STDOUT, "4. Delete an existing contact." . PHP_EOL);
-	fwrite(STDOUT, "5. Exit. Enter an option (1, 2, 3, 4 or 5): " . PHP_EOL);
-
-
-
-
-
-
-
-
+fwrite(STDOUT, "--- Main Menu ---" . PHP_EOL);	
+fwrite(STDOUT, "1. View Contacts." . PHP_EOL);
+fwrite(STDOUT, "2. Add a new contact." . PHP_EOL);
+fwrite(STDOUT, "3. Search a contact by name." . PHP_EOL);
+fwrite(STDOUT, "4. Delete an existing contact." . PHP_EOL);
+fwrite(STDOUT, "5. Exit. Enter an option (1, 2, 3, 4 or 5): " . PHP_EOL);
 
 
 //Function to parse the contacts
@@ -40,8 +32,8 @@ function parseContacts($filename)
 		$info = explode("|", $contact);
 		$info[1] = substr($info[1], 0, 3) . "-" . substr($info[1], 3, 3) . "-" . substr($info[1], 6);
       	$eachContact = [
-	        "name" => $info[0],
-	        "number" => $info[1]
+	        'name' => $info[0],
+	        'number' => $info[1]
       	];
       $contacts[] = $eachContact;
     }
@@ -50,16 +42,39 @@ function parseContacts($filename)
 }
 
 
-print_r(parseContacts('contacts.txt'));
+// print_r(parseContacts('contacts.txt'));
 
 
-//function to display contacts
+//function to display contacts appropriately
 
+function displayContact ($contacts) {
+	echo str_pad('Name', 10);
+	echo ' | ';
+	echo str_pad('Phone Number', 10);
+	echo "\n";
+	echo "--------------------------" . PHP_EOL;
+	asort($contacts);
+		foreach ($contacts as $key => $contact) {
+		 	echo $contact['name'] . " | " . $contact['number'] ."\n";
+		 }
+} 
+
+var_dump(displayContact(parseContacts('contacts.txt')));
 //function to add contact
 
 //function to search contacts
 
 //function to delete contacts
+
+//Loop to return the functions
+
+
+
+
+
+
+
+
 
 
 
