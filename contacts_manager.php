@@ -25,7 +25,7 @@ function parseContacts($file)
 	// Explode each array element into an associative array of name and number key values 
 	foreach ($person as $contact) {
 		$info = explode("|", $contact);
-		$info[1] = substr($info[1], 0, 3) . "-" . substr($info[1], 3, 3) . "-" . substr($info[1], 6);
+		$info[1] = substr($info[1], 0, 4) . "-" . substr($info[1], 3, 3) . "-" . substr($info[1], 6);
       	$eachContact = [
 	        "name" => $info[0],
 	        "number" => $info[1]
@@ -43,13 +43,13 @@ function parseContacts($file)
 //function to display contacts appropriately
 
 function displayContacts ($contactsArray) {
-	echo str_pad('Name', 10);
-	echo ' | ';
-	echo str_pad('Phone Number', 12);
+	echo str_pad('Name', 16);
+	echo " | ";
+	echo " Phone Number";
 	echo "\n";
-	echo "--------------------------" . PHP_EOL;
+	echo "----------------------------------" . PHP_EOL;
 		foreach ($contactsArray as $key => $contact) {
-		 	echo $contact['name'] . " | " . $contact['number'] . PHP_EOL;
+		 	echo str_pad($contact['name'], 16) . " | " . $contact['number'] . PHP_EOL;
 		 }
 } 
 
@@ -88,8 +88,10 @@ function mainMenu($file) {
 	fwrite(STDOUT, "3. Search a contact by name." . PHP_EOL);
 	fwrite(STDOUT, "4. Delete an existing contact." . PHP_EOL);
 	fwrite(STDOUT, "5. Exit. Enter an option (1, 2, 3, 4 or 5): " . PHP_EOL);
+	
 	$input = trim(fgets(STDIN));
 	$result = parseContacts($file);
+	
 	switch($input) {
 		case 1:
 			displayContacts($result);
