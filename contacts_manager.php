@@ -37,12 +37,10 @@ function parseContacts($file)
 }
 
 
-// print_r(parseContacts('contacts.txt'));
-
-
 //function to display contacts appropriately
 
 function displayContacts ($contactsArray) {
+	clearstatcache();
 	echo str_pad('Name', 16);
 	echo " | ";
 	echo " Phone Number";
