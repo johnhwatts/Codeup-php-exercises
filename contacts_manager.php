@@ -52,7 +52,7 @@ function displayContacts ($contactsArray) {
 } 
 
 
-//function to add contact
+//function to add contact, adds a new contact to a specified
 
 function addContact($newContactName, $newContactNumber, $filename) {
 	$handle = fopen($filename, 'a');
