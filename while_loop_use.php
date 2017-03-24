@@ -13,3 +13,5 @@ while($name === "John") {
 } 
 
 echo "You changed your name to $name" . PHP_EOL;
+
+// do/whiles run the code inside the body at LEAST once
