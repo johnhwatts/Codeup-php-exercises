@@ -2,12 +2,7 @@
 
 // Create a command line application to display contacts, add new contact, search contact by name, delete contact
 
-//Main menu
-
-
-
-
-//Function to parse the contacts
+// Function to parse the contacts
 
 function parseContacts($file)
 { 
@@ -40,7 +35,7 @@ function parseContacts($file)
 //function to display contacts appropriately
 
 function displayContacts ($contactsArray) {
-	clearstatcache();
+	clearstatcache(); //clears cache for when user adds or deletes contact
 	echo str_pad('Name', 16);
 	echo " | ";
 	echo " Phone Number";
@@ -78,6 +73,7 @@ function deleteContacts() {
 
 
 //Loop to return the functions
+//Main menu
 
 function mainMenu($file) {
 	fwrite(STDOUT, "--- Main Menu ---" . PHP_EOL);	

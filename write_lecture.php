@@ -12,7 +12,7 @@
 			fwrite($handle, PHP_EOL . $itemInArray);
 		}
 
-		fwrite($handle, "this is the end" . PHP_EOL);
+		fwrite($handle, "this is the end" . PHP_EOL); 
 
 		fclose($handle);
 	}

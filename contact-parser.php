@@ -7,11 +7,11 @@ function parseContacts($filename)
     // Open stream
     $filename = 'contacts.txt';
 	$handle = fopen($filename, 'r');
-	$contents = (fread($handle, filesize($filename));
+	$contents = fread($handle, filesize($filename));
 	$contents = trim($contents);
 	// Close stream
     fclose($handle);
-    
+
 	$person = explode("\n", $contents);
 	
 	// Explode each array element into an associative array of name and number key values 
